@@ -1,90 +1,56 @@
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg,#ff416c,#ff4b2b);
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Surprise ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-.screen { display: none; }
-.screen.active { display: block; }
+<div class="hearts"></div>
 
-input {
-  padding: 12px;
-  width: 220px;
-  border-radius: 25px;
-  border: none;
-  text-align: center;
-  font-size: 16px;
-  animation: glow 1.5s infinite alternate;
-}
+<!-- SCREEN 0 -->
+<div id="screen0" class="screen active">
+  <h1 class="typing">Hey You 💌</h1>
+  <button onclick="goNext(0,1)">Start ❤️</button>
+</div>
 
-button {
-  padding: 12px 25px;
-  margin: 10px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-}
+<!-- SCREEN 1 : HER NAME -->
+<div id="screen1" class="screen">
+  <h2>Enter Her Name 💖</h2>
+  <input id="herName" placeholder="Her name">
+  <button onclick="checkHer()">Next</button>
+</div>
 
-#noBtn {
-  position: absolute;
-}
+<!-- SCREEN 2 : HIS NAME -->
+<div id="screen2" class="screen">
+  <h2>Enter Your Name 👀</h2>
+  <input id="hisName" placeholder="Your name">
+  <button onclick="checkHis()">Continue</button>
+  <p id="error"></p>
+</div>
 
-.gift {
-  font-size: 90px;
-  animation: bounce 1s infinite;
-  cursor: pointer;
-}
+<!-- SCREEN 3 : YES / NO -->
+<div id="screen3" class="screen">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button onclick="yesClick()">YES 💖</button>
+  <button id="noBtn">NO 😏</button>
+</div>
 
-.typing {
-  animation: typing 3s steps(20) infinite;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
-}
+<!-- SCREEN 4 : GIFT -->
+<div id="screen4" class="screen">
+  <h1>🎁 Open Your Gift 🎁</h1>
+  <div class="gift" onclick="openGift()">🎁</div>
+</div>
 
-@keyframes bounce {
-  50% { transform: translateY(-20px); }
-}
+<!-- SCREEN 5 : FINAL -->
+<div id="screen5" class="screen">
+  <h1>💖 Happy Valentine’s Day 💖</h1>
+  <h2 id="finalText"></h2>
+</div>
 
-@keyframes glow {
-  from { box-shadow: 0 0 5px white; }
-  to { box-shadow: 0 0 20px pink; }
-}
+<footer>@karthik created ❤️</footer>
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-.hearts::before {
-  content: "❤️ 💕 💖 💗 💓 💞";
-  position:float;
-  bottom: -50px;
-  width: 100%;
-  text-align: center;
-  animation: float 6s linear infinite;
-  font-size: 30px;
-}
-
-@keyframes float {
-  to { bottom: 110%; }
-}
-
-#error {
-  color: yellow;
-  font-weight: bold;
-}
-
-footer {
-  position: fixed;
-  bottom: 10px;
-  font-size: 14px;
-}
+<script src="script.js"></script>
+</body>
+</html>
