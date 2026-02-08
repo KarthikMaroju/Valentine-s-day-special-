@@ -2,15 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Valentine's Day ❤️</title>
+  <title>Valentine Surprise ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="card">
-  <h1>Happy Valentine’s Day 💖</h1>
-  <p id="msg"></p>
+<!-- FIRST SCREEN -->
+<div id="screen1" class="screen active">
+  <h1>💖 Will You Be My Valentine? 💖</h1>
+  <div class="buttons">
+    <button onclick="sayYes()">Yes ❤️</button>
+    <button onclick="sayNo()">No 💔</button>
+  </div>
 </div>
+
+<!-- SECOND SCREEN -->
+<div id="screen2" class="screen">
+  <h1 id="valentineMsg"></h1>
+  <p class="names" id="names"></p>
+
+  <div class="gift" onclick="openGift()">
+    🎁
+    <p>Tap to open gift</p>
+  </div>
+</div>
+
+<!-- THIRD SCREEN -->
+<div id="screen3" class="screen">
+  <h1>🎉 Happy Valentine’s Day 🎉</h1>
+  <h2 id="finalMsg"></h2>
+</div>
+
+<footer>
+  Created by @karthik 💖
+</footer>
 
 <script src="script.js"></script>
 </body>
