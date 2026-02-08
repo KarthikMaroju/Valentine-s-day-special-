@@ -1,34 +1,13 @@
-let his = "";
-let her = "";
+function checkName() {
+  const nameInput = document.getElementById("nameInput").value.trim().toLowerCase();
+  const error = document.getElementById("error");
 
-const music = document.getElementById("bgMusic");
-
-// Auto open first screen
-setTimeout(() => {
-  document.getElementById("screen0").addEventListener("click", () => {
-    document.getElementById("screen0").classList.remove("active");
-    document.getElementById("screen1").classList.add("active");
-    music.play().catch(()=>{});
-  });
-}, 500);
-
-function startSurprise() {
-  his = document.getElementById("hisName").value;
-  her = document.getElementById("herName").value;
-
-  if (his === "" || her === "") {
-    alert("Please enter both names ❤️");
-    return;
+  if (nameInput === "karthik") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+  } else if (nameInput === "") {
+    error.innerText = "⚠️ Please type a name";
+  } else {
+    error.innerText = "❌ Wrong name! Only Karthik allowed";
   }
-
-  document.getElementById("screen1").classList.remove("active");
-  document.getElementById("screen2").classList.add("active");
-}
-
-function openGift() {
-  document.getElementById("screen2").classList.remove("active");
-  document.getElementById("screen3").classList.add("active");
-
-  document.getElementById("finalText").innerText =
-    `My dear ${her},\nHappy Valentine’s Day 💖\nLove from ${his} ❤️`;
 }
