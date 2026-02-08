@@ -1,50 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine Surprise ❤️</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Valentine Surprise 💖</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff4d6d, #ff9a9e);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+/* Card */
+.card {
+  background: rgba(0,0,0,0.3);
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  z-index: 2;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 10px 0;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ffccd5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#error {
+  color: yellow;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Floating Hearts */
+.floating-hearts span {
+  position: fixed;
+  bottom: -40px;
+  font-size: 28px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+.floating-hearts span:nth-child(1){left:10%;animation-duration:6s;}
+.floating-hearts span:nth-child(2){left:25%;animation-duration:8s;}
+.floating-hearts span:nth-child(3){left:40%;animation-duration:7s;}
+.floating-hearts span:nth-child(4){left:60%;animation-duration:9s;}
+.floating-hearts span:nth-child(5){left:75%;animation-duration:6.5s;}
+.floating-hearts span:nth-child(6){left:90%;animation-duration:8.5s;}
+
+@keyframes floatUp {
+  from {transform: translateY(0); opacity: 1;}
+  to {transform: translateY(-120vh); opacity: 0;}
+}
+
+/* Hidden sections */
+#surprise {
+  display: none;
+  font-size: 24px;
+}
+</style>
 </head>
+
 <body>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
 <!-- Floating Hearts -->
-<div class="hearts"></div>
-
-<!-- AUTO OPEN SCREEN -->
-<div id="screen0" class="screen active">
-  <h1>💌 A Surprise is Waiting for You 💌</h1>
-  <p>Tap to continue</p>
+<div class="floating-hearts">
+  <span>❤️</span>
+  <span>💖</span>
+  <span>💕</span>
+  <span>💘</span>
+  <span>💗</span>
+  <span>💞</span>
 </div>
 
-<!-- NAME INPUT SCREEN -->
-<div id="screen1" class="screen">
-  <h2>Enter Names 💖</h2>
-  <input type="text" id="hisName" placeholder="Your Name">
-  <input type="text" id="herName" placeholder="Her Name">
-  <button onclick="startSurprise()">Continue ❤️</button>
+<!-- Main Card -->
+<div class="card" id="login">
+  <h2>Enter His Name 💌</h2>
+  <input type="text" id="nameInput" placeholder="Type name">
+  <br>
+  <button onclick="checkName()">Open</button>
+  <div id="error"></div>
 </div>
 
-<!-- GIFT SCREEN -->
-<div id="screen2" class="screen">
-  <h1>🎁 Surprise Gift 🎁</h1>
-  <div class="gift" onclick="openGift()">🎁</div>
-  <p>Tap the gift</p>
-</div>
-
-<!-- FINAL SCREEN -->
-<div id="screen3" class="screen">
+<!-- Surprise -->
+<div class="card" id="surprise">
   <h1>💖 Happy Valentine’s Day 💖</h1>
-  <h2 id="finalText"></h2>
-  <div class="card">💝</div>
+  <p>My Dear 💕</p>
+  <p>— Created by Karthik</p>
 </div>
 
-<footer>@karthik created ❤️</footer>
+<script>
+function checkName() {
+  const name = document.getElementById("nameInput").value.trim().toLowerCase();
+  const error = document.getElementById("error");
 
-<script src="script.js"></script>
+  if (name === "karthik") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("surprise").style.display = "block";
+  } else {
+    error.innerText = "❌ Wrong name! Try again";
+  }
+}
+</script>
+
 </body>
 </html>
