@@ -7,40 +7,46 @@
 </head>
 <body>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Floating Hearts -->
 <div class="hearts"></div>
 
-<!-- AUTO OPEN SCREEN -->
+<!-- SCREEN 0 -->
 <div id="screen0" class="screen active">
-  <h1>💌 A Surprise is Waiting for You 💌</h1>
-  <p>Tap to continue</p>
+  <h1 class="typing">Hey You 💌</h1>
+  <button onclick="goNext(0,1)">Start ❤️</button>
 </div>
 
-<!-- NAME INPUT SCREEN -->
+<!-- SCREEN 1 : HER NAME -->
 <div id="screen1" class="screen">
-  <h2>Enter Names 💖</h2>
-  <input type="text" id="hisName" placeholder="Your Name">
-  <input type="text" id="herName" placeholder="Her Name">
-  <button onclick="startSurprise()">Continue ❤️</button>
+  <h2>Enter Her Name 💖</h2>
+  <input id="herName" placeholder="Her name">
+  <button onclick="checkHer()">Next</button>
 </div>
 
-<!-- GIFT SCREEN -->
+<!-- SCREEN 2 : HIS NAME -->
 <div id="screen2" class="screen">
-  <h1>🎁 Surprise Gift 🎁</h1>
-  <div class="gift" onclick="openGift()">🎁</div>
-  <p>Tap the gift</p>
+  <h2>Enter Your Name 👀</h2>
+  <input id="hisName" placeholder="Your name">
+  <button onclick="checkHis()">Continue</button>
+  <p id="error"></p>
 </div>
 
-<!-- FINAL SCREEN -->
+<!-- SCREEN 3 : YES / NO -->
 <div id="screen3" class="screen">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button onclick="yesClick()">YES 💖</button>
+  <button id="noBtn">NO 😏</button>
+</div>
+
+<!-- SCREEN 4 : GIFT -->
+<div id="screen4" class="screen">
+  <h1>🎁 Open Your Gift 🎁</h1>
+  <div class="gift" onclick="openGift()">🎁</div>
+</div>
+
+<!-- SCREEN 5 : FINAL -->
+<div id="screen5" class="screen">
   <h1>💖 Happy Valentine’s Day 💖</h1>
   <h2 id="finalText"></h2>
-  <div class="card">💝</div>
 </div>
 
 <footer>@karthik created ❤️</footer>
@@ -48,4 +54,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
