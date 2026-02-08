@@ -1,25 +1,72 @@
 body {
   margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
 
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
 }
 
 h1 {
+  font-size: 30px;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+button:first-child {
+  background: #fff;
   color: #ff4d6d;
 }
 
-p {
-  font-size: 18px;
+button:last-child {
+  background: #333;
+  color: white;
+}
+
+.gift {
+  font-size: 80px;
+  cursor: pointer;
+  margin-top: 40px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.names {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
 }
