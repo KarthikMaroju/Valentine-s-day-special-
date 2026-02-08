@@ -70,7 +70,7 @@ button {
   bottom: -50px;
   width: 100%;
   text-align: center;
-  animation: float 15s linear infinite;
+  animation: float 6s linear infinite;
   font-size: 30px;
 }
 
