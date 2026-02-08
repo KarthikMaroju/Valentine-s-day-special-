@@ -1,91 +1,87 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ff416c, #ff4b2b);
-  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff9a9e);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
-  overflow: hidden;
 }
 
-.screen {
-  display: none;
-}
-
-.screen.active {
-  display: block;
-}
-
-h1, h2 {
-  margin-bottom: 20px;
+/* Card */
+.card {
+  background: rgba(0,0,0,0.35);
+  padding: 25px;
+  border-radius: 15px;
+  width: 300px;
+  z-index: 2;
 }
 
 input {
-  display: block;
-  padding: 12px;
-  margin: 10px auto;
-  width: 220px;
-  border-radius: 25px;
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
   border: none;
+  margin: 12px 0;
   text-align: center;
-  font-size: 16px;
 }
 
 button {
-  padding: 12px 30px;
-  border-radius: 30px;
+  padding: 10px 25px;
+  border-radius: 20px;
   border: none;
-  background: white;
-  color: #ff4b2b;
-  font-size: 18px;
+  background: #ffccd5;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.gift {
-  font-size: 90px;
-  cursor: pointer;
-  animation: bounce 1s infinite;
+button:hover {
+  background: #fff;
 }
 
-.card {
-  font-size: 100px;
-  margin-top: 20px;
-  animation: pop 1s ease-in-out infinite alternate;
+/* Error text */
+#error {
+  color: yellow;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+/* Surprise hidden */
+#surprise {
+  display: none;
 }
 
-@keyframes pop {
-  from { transform: scale(1); }
-  to { transform: scale(1.1); }
-}
-
-/* Floating Hearts */
-.hearts::before {
-  content: "❤️ 💕 💖 💗 💓 💞";
+/* Floating hearts */
+.floating-hearts span {
   position: fixed;
   bottom: -50px;
-  width: 100%;
-  text-align: center;
-  animation: float 6s linear infinite;
   font-size: 30px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
 }
 
-@keyframes float {
-  0% { bottom: -50px; opacity: 0; }
-  50% { opacity: 1; }
-  100% { bottom: 110%; opacity: 0; }
+.floating-hearts span:nth-child(1){left:5%;animation-duration:6s;}
+.floating-hearts span:nth-child(2){left:20%;animation-duration:8s;}
+.floating-hearts span:nth-child(3){left:35%;animation-duration:7s;}
+.floating-hearts span:nth-child(4){left:55%;animation-duration:9s;}
+.floating-hearts span:nth-child(5){left:70%;animation-duration:6.5s;}
+.floating-hearts span:nth-child(6){left:85%;animation-duration:8.5s;}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
 }
 
 footer {
-  position: fixed;
-  bottom: 10px;
+  margin-top: 10px;
   font-size: 14px;
-  opacity: 0.8;
 }
