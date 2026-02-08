@@ -1,13 +1,14 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
   height: 100vh;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   text-align: center;
+  overflow: hidden;
 }
 
 .screen {
@@ -18,55 +19,74 @@ body {
   display: block;
 }
 
-h1 {
-  font-size: 30px;
+h1, h2 {
+  margin-bottom: 20px;
 }
 
-.buttons {
-  margin-top: 30px;
+input {
+  display: block;
+  padding: 12px;
+  margin: 10px auto;
+  width: 220px;
+  border-radius: 25px;
+  border: none;
+  text-align: center;
+  font-size: 16px;
 }
 
 button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
+  padding: 12px 30px;
   border-radius: 30px;
-  margin: 10px;
+  border: none;
+  background: white;
+  color: #ff4b2b;
+  font-size: 18px;
   cursor: pointer;
-}
-
-button:first-child {
-  background: #fff;
-  color: #ff4d6d;
-}
-
-button:last-child {
-  background: #333;
-  color: white;
 }
 
 .gift {
-  font-size: 80px;
+  font-size: 90px;
   cursor: pointer;
-  margin-top: 40px;
   animation: bounce 1s infinite;
 }
 
+.card {
+  font-size: 100px;
+  margin-top: 20px;
+  animation: pop 1s ease-in-out infinite alternate;
+}
+
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
+  0%,100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-.names {
-  font-size: 20px;
-  margin-top: 15px;
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+/* Floating Hearts */
+.hearts::before {
+  content: "❤️ 💕 💖 💗 💓 💞";
+  position: fixed;
+  bottom: -50px;
+  width: 100%;
+  text-align: center;
+  animation: float 6s linear infinite;
+  font-size: 30px;
+}
+
+@keyframes float {
+  0% { bottom: -50px; opacity: 0; }
+  50% { opacity: 1; }
+  100% { bottom: 110%; opacity: 0; }
 }
 
 footer {
   position: fixed;
   bottom: 10px;
-  width: 100%;
-  text-align: center;
   font-size: 14px;
   opacity: 0.8;
 }
+
