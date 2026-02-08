@@ -1,42 +1,56 @@
-let her = "";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine Surprise ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-function goNext(a,b){
-  document.getElementById("screen"+a).classList.remove("active");
-  document.getElementById("screen"+b).classList.add("active");
-}
+<div class="hearts"></div>
 
-function checkHer(){
-  her = document.getElementById("herName").value;
-  if(her === ""){
-    alert("Enter her name 💖");
-    return;
-  }
-  goNext(1,2);
-}
+<!-- SCREEN 0 -->
+<div id="screen0" class="screen active">
+  <h1 class="typing">Hey You 💌</h1>
+  <button onclick="goNext(0,1)">Start ❤️</button>
+</div>
 
-function checkHis(){
-  let his = document.getElementById("hisName").value.toLowerCase();
-  if(his !== "karthik"){
-    document.getElementById("error").innerText =
-      "❌ Only KARTHIK is allowed";
-    return;
-  }
-  goNext(2,3);
-}
+<!-- SCREEN 1 : HER NAME -->
+<div id="screen1" class="screen">
+  <h2>Enter Her Name 💖</h2>
+  <input id="herName" placeholder="Her name">
+  <button onclick="checkHer()">Next</button>
+</div>
 
-/* Fake NO Button */
-const noBtn = document.getElementById("noBtn");
-noBtn.addEventListener("mouseover", ()=>{
-  noBtn.style.left = Math.random()*80 + "%";
-  noBtn.style.top = Math.random()*80 + "%";
-});
+<!-- SCREEN 2 : HIS NAME -->
+<div id="screen2" class="screen">
+  <h2>Enter Your Name 👀</h2>
+  <input id="hisName" placeholder="Your name">
+  <button onclick="checkHis()">Continue</button>
+  <p id="error"></p>
+</div>
 
-function yesClick(){
-  goNext(3,4);
-}
+<!-- SCREEN 3 : YES / NO -->
+<div id="screen3" class="screen">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button onclick="yesClick()">YES 💖</button>
+  <button id="noBtn">NO 😏</button>
+</div>
 
-function openGift(){
-  goNext(4,5);
-  document.getElementById("finalText").innerText =
-    `My dear ${her}, Happy Valentine’s Day 💗\n— Karthik ❤️`;
-}
+<!-- SCREEN 4 : GIFT -->
+<div id="screen4" class="screen">
+  <h1>🎁 Open Your Gift 🎁</h1>
+  <div class="gift" onclick="openGift()">🎁</div>
+</div>
+
+<!-- SCREEN 5 : FINAL -->
+<div id="screen5" class="screen">
+  <h1>💖 Happy Valentine’s Day 💖</h1>
+  <h2 id="finalText"></h2>
+</div>
+
+<footer>@karthik created ❤️</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
