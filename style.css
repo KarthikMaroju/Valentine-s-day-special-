@@ -1,8 +1,8 @@
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg,#ff416c,#ff4b2b);
-  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,59 +11,62 @@ body {
   overflow: hidden;
 }
 
-.screen { display: none; }
-.screen.active { display: block; }
+.screen {
+  display: none;
+}
+
+.screen.active {
+  display: block;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
 
 input {
+  display: block;
   padding: 12px;
+  margin: 10px auto;
   width: 220px;
   border-radius: 25px;
   border: none;
   text-align: center;
   font-size: 16px;
-  animation: glow 1.5s infinite alternate;
 }
 
 button {
-  padding: 12px 25px;
-  margin: 10px;
+  padding: 12px 30px;
   border-radius: 30px;
   border: none;
-  cursor: pointer;
+  background: white;
+  color: #ff4b2b;
   font-size: 18px;
-}
-
-#noBtn {
-  position: absolute;
+  cursor: pointer;
 }
 
 .gift {
   font-size: 90px;
-  animation: bounce 1s infinite;
   cursor: pointer;
+  animation: bounce 1s infinite;
 }
 
-.typing {
-  animation: typing 3s steps(20) infinite;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
+.card {
+  font-size: 100px;
+  margin-top: 20px;
+  animation: pop 1s ease-in-out infinite alternate;
 }
 
 @keyframes bounce {
-  50% { transform: translateY(-20px); }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 5px white; }
-  to { box-shadow: 0 0 20px pink; }
+@keyframes pop {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
+/* Floating Hearts */
 .hearts::before {
   content: "❤️ 💕 💖 💗 💓 💞";
   position: fixed;
@@ -75,16 +78,14 @@ button {
 }
 
 @keyframes float {
-  to { bottom: 110%; }
-}
-
-#error {
-  color: yellow;
-  font-weight: bold;
+  0% { bottom: -50px; opacity: 0; }
+  50% { opacity: 1; }
+  100% { bottom: 110%; opacity: 0; }
 }
 
 footer {
   position: fixed;
   bottom: 10px;
   font-size: 14px;
+  opacity: 0.8;
 }
