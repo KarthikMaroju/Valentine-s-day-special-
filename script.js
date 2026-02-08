@@ -1,56 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Valentine Surprise ❤️</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+let his = "";
+let her = "";
 
-<div class="hearts"></div>
+const music = document.getElementById("bgMusic");
 
-<!-- SCREEN 0 -->
-<div id="screen0" class="screen active">
-  <h1 class="typing">Hey You 💌</h1>
-  <button onclick="goNext(0,1)">Start ❤️</button>
-</div>
+// Auto open first screen
+setTimeout(() => {
+  document.getElementById("screen0").addEventListener("click", () => {
+    document.getElementById("screen0").classList.remove("active");
+    document.getElementById("screen1").classList.add("active");
+    music.play().catch(()=>{});
+  });
+}, 500);
 
-<!-- SCREEN 1 : HER NAME -->
-<div id="screen1" class="screen">
-  <h2>Enter Her Name 💖</h2>
-  <input id="herName" placeholder="Her name">
-  <button onclick="checkHer()">Next</button>
-</div>
+function startSurprise() {
+  his = document.getElementById("hisName").value;
+  her = document.getElementById("herName").value;
 
-<!-- SCREEN 2 : HIS NAME -->
-<div id="screen2" class="screen">
-  <h2>Enter Your Name 👀</h2>
-  <input id="hisName" placeholder="Your name">
-  <button onclick="checkHis()">Continue</button>
-  <p id="error"></p>
-</div>
+  if (his === "" || her === "") {
+    alert("Please enter both names ❤️");
+    return;
+  }
 
-<!-- SCREEN 3 : YES / NO -->
-<div id="screen3" class="screen">
-  <h1>Will you be my Valentine? 💘</h1>
-  <button onclick="yesClick()">YES 💖</button>
-  <button id="noBtn">NO 😏</button>
-</div>
+  document.getElementById("screen1").classList.remove("active");
+  document.getElementById("screen2").classList.add("active");
+}
 
-<!-- SCREEN 4 : GIFT -->
-<div id="screen4" class="screen">
-  <h1>🎁 Open Your Gift 🎁</h1>
-  <div class="gift" onclick="openGift()">🎁</div>
-</div>
+function openGift() {
+  document.getElementById("screen2").classList.remove("active");
+  document.getElementById("screen3").classList.add("active");
 
-<!-- SCREEN 5 : FINAL -->
-<div id="screen5" class="screen">
-  <h1>💖 Happy Valentine’s Day 💖</h1>
-  <h2 id="finalText"></h2>
-</div>
-
-<footer>@karthik created ❤️</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+  document.getElementById("finalText").innerText =
+    `My dear ${her},\nHappy Valentine’s Day 💖\nLove from ${his} ❤️`;
+}
